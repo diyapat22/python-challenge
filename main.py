@@ -55,7 +55,14 @@ print(f"Average Change: ${average_change:.2f}")
 print(f"Greatest Increase in Profits: {greatest_increase['Date']} (${greatest_increase['Amount']})")
 print(f"Greatest Decrease in Profits: {greatest_decrease['Date']} (${greatest_decrease['Amount']})")
 
-
+with open("financial_analysis_output.txt", "w") as outfile:
+    outfile.write("Financial Analysis\n")
+    outfile.write("--------------------------\n")
+    outfile.write(f"Total Months: {total_months}\n")
+    outfile.write(f"Total Profit/Losses: ${total_profit_losses}\n")
+    outfile.write(f"Average Change: ${average_change:.2f}\n")
+    outfile.write(f"Greatest Increase in Profits: {greatest_increase['Date']} (${greatest_increase['Amount']})\n")
+    outfile.write(f"Greatest Decrease in Profits: {greatest_decrease['Date']} (${greatest_decrease['Amount']})\n")
 
 
 import csv
@@ -105,4 +112,17 @@ print("--------------------------")
 print(f"Winner: {winner}")
 print("--------------------------")
 
+with open("election_results_output.txt", "w") as outfile:
+    outfile.write("Election Results\n")
+    outfile.write("--------------------------\n")
+    outfile.write(f"Total Votes: {total_votes}\n")
+    outfile.write("--------------------------\n")
+
+    for candidate, votes in candidates.items():
+        percentage = (votes / total_votes) * 100
+        outfile.write(f"{candidate}: {percentage:.3f}% ({votes})\n")
+
+    outfile.write("--------------------------\n")
+    outfile.write(f"Winner: {winner}\n")
+    outfile.write("--------------------------\n")
 
